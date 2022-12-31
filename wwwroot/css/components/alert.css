@@ -1,0 +1,39 @@
+.alert {
+    display: block;
+    border: solid 2px black;
+    width: max-content;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 18px;
+    max-width: 85%;
+}
+
+.alert:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+.alert > .close {
+    font-size: 18px;
+    padding-right: 5px;
+    padding-left: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.alert > strong {
+    font-size: 18px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1024px) {
+    .alert {
+        font-size: 14px;
+    }
+    
+    .alert > .close {
+        font-size: 14px;
+    }
+    
+    .alert > strong {
+        font-size: 14px;
+    }
+}

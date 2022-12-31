@@ -1,0 +1,68 @@
+﻿@section HTML_TITLE {
+  Изменение проекта
+}
+
+@section HTML_HEADER_CSS {
+  <link rel="stylesheet" href="~/css/pages/project/edit.css" />
+}
+
+@section HTML_PAGE_NAVIGATION {
+  <div class="page-navigation-left">
+    <a asp-area="Project" asp-controller="Project" asp-action="EditRequirements" asp-route-id="@ViewBag.Project.ID">
+      <div class="bookmark">
+        <img src="~/img/project-step.svg" alt="Этап 'Работа над требованиями'">
+      </div>
+    </a>
+    <a asp-area="Project" asp-controller="Project" asp-action="EditArchitecture" asp-route-id="@ViewBag.Project.ID">
+      <div class="bookmark">
+        <img src="~/img/project-step.svg" alt="Этап 'Разработка архитектуры'">
+      </div>
+    </a>
+    <a asp-area="Project" asp-controller="Project" asp-action="EditImplementation" asp-route-id="@ViewBag.Project.ID">
+      <div class="bookmark">
+        <img src="~/img/project-step.svg" alt="Этап 'Реализация'">
+      </div>
+    </a>
+    <a asp-area="Project" asp-controller="Project" asp-action="EditTesting" asp-route-id="@ViewBag.Project.ID">
+      <div class="bookmark">
+        <img src="~/img/project-step.svg" alt="Этап 'Тестирование'">
+      </div>
+    </a>
+    <a asp-area="Project" asp-controller="Project" asp-action="Show" asp-route-id="@ViewBag.Project.ID">
+      <div class="bookmark">
+        <img src="~/img/exit.svg" alt="Назад">
+      </div>
+    </a>
+    <a asp-area="Project" asp-controller="Project" asp-action="Delete" asp-route-id="@ViewBag.Project.ID" class="link-confirm">
+      <div class="bookmark">
+        <img src="~/img/delete.svg" alt="Удалить">
+      </div>
+    </a>
+  </div>
+}
+
+@section HTML_FOOTER_JS {
+  <script src="~/js/components/input-number.js"></script>
+  <script src="~/js/components/link-confirm.js"></script>
+}
+
+<div class="page page-project-edit">
+  <div class="page-head">
+    <p>Изменение проекта</p>
+  </div>
+  <div class="page-body">
+    <form autocomplete="off" asp-area="Project" asp-controller="Project" asp-action="Edit" asp-route-id="@ViewBag.Project.ID" method="post" enctype="multipart/form-data">
+      <center class="item-container">
+        <p class="title">Наименование</p>
+        <input name="name" type="text" placeholder="Наименование" value="@ViewBag.Project.Name" maxlength="20" />
+      </center>
+      <center class="item-container">
+        <p class="title">Цена одного часа</p>
+        <input name="priceHour" type="text" pattern="[0-9]+" class="input-number" placeholder="Цена одного часа" value="@ViewBag.Project.PriceHour" maxlength="5" />
+      </center>
+      <center class="item-container submit">
+        <input type="submit" value="Применить">
+      </center>
+    </form>
+  </div>
+</div>

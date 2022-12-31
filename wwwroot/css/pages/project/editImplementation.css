@@ -1,0 +1,147 @@
+.page.page-project-edit-implementation > .page-body {
+    padding: 20px;
+}
+
+.page.page-project-edit-implementation > .page-body > form > .item-container {
+    margin-bottom: 40px;
+}
+
+.page.page-project-edit-implementation > .page-body > form >.item-container:last-child {
+    margin-top: 40px;
+    margin-bottom: 0px;
+}
+
+.page.page-project-edit-implementation > .page-body > form > .item-container > .title {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.page.page-project-edit-implementation > .page-body > form > .item-container > .arrows {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.page.page-project-edit-implementation > .page-body > form > .item-container > a {
+    font-size: 20px;
+    text-align: center;
+    background-color: white;
+    border: solid 2px rgb(40, 42, 40);
+    border-radius: 10px;
+    text-decoration: none;
+    color: rgb(40, 42, 40);
+    height: 50px;
+    width: 90%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.page.page-project-edit-implementation > .page-body > form > .item-container > a:hover {
+    background-color: rgba(230, 230, 230, 0.589);
+}
+
+.page.page-project-edit-implementation  > .page-body > form > .item-container > input[type="text"]:invalid {
+    background-color: #fff2f2;
+}
+
+.page.page-project-edit-implementation > .page-body > form > .item-container > input[type="text"] {
+    display: inline;
+    height: 50px;
+    width: 90%;
+    font-size: 20px;
+    text-align: center;
+    background-color: white;
+    border: solid 2px rgb(40, 42, 40);
+    border-radius: 10px;
+}
+
+.page.page-project-edit-implementation > .page-body > form > .item-container > input[type="text"]::placeholder {
+    padding-top: 5px;
+    opacity: 0.6;
+}
+
+.page.page-project-edit-implementation > .page-body > form > .item-container > input[type="text"]::placeholder:focus {
+    background-color: white;
+    opacity: 0;
+}
+
+.page.page-project-edit-implementation > .page-body > form > .item-container > input[type="text"]::placeholder:focus {
+    opacity: 0;
+}
+
+.page.page-project-edit-implementation > .page-body > form > .item-container > input[type="text"]:active,
+.page.page-project-edit-implementation > .page-body > form > .item-container > input[type="text"]:focus {
+    outline: none !important;
+}
+
+.page.page-project-edit-implementation > .page-body > form > .item-container > input[type="text"]::-moz-focus-inner {
+    border: 0 !important;
+}
+
+.page.page-project-edit-implementation > .page-body > form > .item-container > input[type="submit"] {
+    border-radius: 10px;
+    background-color: white;
+    z-index: 1;
+    width: 80%;
+    height: 56px;
+    font-size: 20px;
+    border: solid 2px rgb(40, 42, 40);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.page.page-project-edit-implementation > .page-body > form > .item-container > input[type="submit"]:hover {
+    background-color: rgba(230, 230, 230, 0.589);
+}
+
+.page.page-project-edit-implementation > .page-body > form > .item-container > input[type="submit"]:active {
+    background-color: rgba(230, 230, 230, 0.589);
+}
+
+.page.page-project-edit-implementation > .page-body > form > .item-container > input[type="submit"]:active,
+.page.page-project-edit-implementation > .page-body > form > .item-container > input[type="submit"]:focus {
+    outline: none !important;
+}
+
+.page.page-project-edit-implementation > .page-body > form > .item-container > input[type="submit"]::-moz-focus-inner {
+    border: 0 !important;
+}
+
+.page.page-project-edit-implementation > .page-body > form > .item-container > p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1024px) {
+    .page.page-project-edit-implementation > .page-body {
+        padding: 40px;
+        padding-top: 20px;
+        padding-bottom: 0px;
+    }
+
+    .page.page-project-edit-implementation > .page-body > form > .item-container > .title {
+        font-size: 16px;
+        margin-top: 0px;
+    }
+
+    .page.page-project-edit-implementation > .page-body > .item-container > .arrows {
+        font-size: 14px;
+        font-weight: bold;
+        color: black;
+    }
+
+    .page.page-project-edit-implementation > .page-body > form > .item-container > a {
+        font-size: 16px;
+        height: 45px;
+    }
+
+    .page.page-project-edit-implementation > .page-body > form > .item-container > input[type="text"],
+    .page.page-project-edit-implementation > .page-body > form > .item-container > input[type="submit"] {
+        font-size: 16px;
+        height: 45px;
+    }
+}

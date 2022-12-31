@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>@RenderSection("HTML_TITLE", required: true)</title>
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/components/general.css" />
+    <link rel="stylesheet" href="~/css/components/load.css" />
+    <link rel="stylesheet" href="~/css/components/head.css" />
+    <link rel="stylesheet" href="~/css/components/body.css" />
+    <link rel="stylesheet" href="~/css/components/navigation.css" />
+    <link rel="stylesheet" href="~/css/components/alert.css" />
+    <link rel="stylesheet" href="~/css/components/checkbox.css" />
+    <script src="~/js/general.js"></script>
+
+    @RenderSection("HTML_HEADER_CSS", required: false)
+    @RenderSection("HTML_HEADER_JS", required: false)
+  </head>
+  
+  <body>
+    <div class="page-loader">
+        <div class="block">
+          <div class="part"></div>
+        </div>
+    </div>
+    
+    @RenderSection("HTML_PAGE_NAVIGATION", required: false)
+    @RenderBody()
+  </body>
+
+  <footer>
+    @RenderSection("HTML_FOOTER_JS", required: false)
+  </footer>
+</html>

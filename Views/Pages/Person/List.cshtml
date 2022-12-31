@@ -1,0 +1,48 @@
+﻿@section HTML_TITLE {
+  Список рабочих
+}
+
+@section HTML_HEADER_CSS {
+  <link rel="stylesheet" href="~/css/pages/person/list.css" />
+}
+
+@section HTML_PAGE_NAVIGATION {
+  <div class="page-navigation-left">
+    <a asp-area="Project" asp-controller="Project" asp-action="List">
+      <div class="bookmark">
+        <img src="~/img/project-list.svg" alt="Список проектов">
+      </div>
+    </a>
+    <a asp-area="Authorization" asp-controller="Authorization" asp-action="Logout">
+      <div class="bookmark">
+        <img src="~/img/logout.svg" alt="Выйти из аккаунта">
+      </div>
+    </a>
+  </div>
+}
+
+<div class="page page-person-list">
+  <div class="page-head">
+    <p>Список рабочих</p>
+  </div>
+  <div class="page-body">
+    @{
+      if (ViewBag.Persons.Count == 0) {
+        <center class="item-container">
+          <p>Пусто</p>
+        </center>
+      } else {
+        for (int i = 0; i < ViewBag.Persons.Count; i++)
+        {
+          <center class="item-container submit">
+          @if (ViewBag.Persons[i].Account.ID == ViewBag.Personal.ID) {
+            <a asp-area="Project" asp-controller="Project" asp-action="Show" asp-route-id="@ViewBag.Persons[i].Project.ID" title="Это вы"><b>@ViewBag.Persons[i].Account.Name @ViewBag.Persons[i].Account.Surname</b></a>
+          } else {
+            <a asp-area="Project" asp-controller="Project" asp-action="Show" asp-route-id="@ViewBag.Persons[i].Project.ID" title="Это НЕ вы">@ViewBag.Persons[i].Account.Name @ViewBag.Persons[i].Account.Surname</a>
+          }
+          </center>
+        }
+      }
+    }
+  </div>
+</div>

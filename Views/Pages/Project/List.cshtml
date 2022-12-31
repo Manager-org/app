@@ -1,0 +1,57 @@
+﻿@section HTML_TITLE {
+  Список проектов
+}
+
+@section HTML_HEADER_CSS {
+  <link rel="stylesheet" href="~/css/pages/project/list.css" />
+}
+
+@section HTML_PAGE_NAVIGATION {
+  <div class="page-navigation-left">
+    @if (ViewBag.IsAdmin) {
+      <a asp-area="Project" asp-controller="Project" asp-action="Create">
+        <div class="bookmark">
+          <img src="~/img/create.svg" alt="Создать новый проект">
+        </div>
+      </a>
+    }
+    <a asp-area="Person" asp-controller="Person" asp-action="List">
+      <div class="bookmark">
+        <img src="~/img/person-list.svg" alt="Регистрация">
+      </div>
+    </a>
+    <a asp-area="Authorization" asp-controller="Authorization" asp-action="Logout">
+      <div class="bookmark">
+        <img src="~/img/logout.svg" alt="Выйти из аккаунта">
+      </div>
+    </a>
+  </div>
+}
+
+<div class="page page-project-list">
+  <div class="page-head">
+    <p>Список проектов</p>
+  </div>
+  <div class="page-body">
+    @{
+      if (ViewBag.Projects.Count == 0) {
+          <center class="item-container">
+            <p>Пусто</p>
+          </center>
+      } else {
+        for (int i = 0; i < ViewBag.Projects.Count; i++)
+        {
+          @if (ViewBag.CurrentProject != null && ViewBag.CurrentProject.Project.ID == ViewBag.Projects[i].ID) {
+            <center class="item-container submit">
+              <a asp-area="Project" asp-controller="Project" asp-action="Show" asp-route-id="@ViewBag.Projects[i].ID" title="Вы состоите в данном проекте"><b>@ViewBag.Projects[i].Name</b></a>
+            </center>
+          } else {
+            <center class="item-container submit">
+              <a asp-area="Project" asp-controller="Project" asp-action="Show" asp-route-id="@ViewBag.Projects[i].ID" title="Вы НЕ состоите в данном проекте">@ViewBag.Projects[i].Name</a>
+            </center>
+          }
+        }
+      }
+    }
+  </div>
+</div>

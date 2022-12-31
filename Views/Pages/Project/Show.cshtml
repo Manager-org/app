@@ -1,0 +1,78 @@
+﻿@section HTML_TITLE {
+  Обзор проекта
+}
+
+@section HTML_HEADER_CSS {
+  <link rel="stylesheet" href="~/css/pages/project/show.css" />
+}
+
+@section HTML_PAGE_NAVIGATION {
+  <div class="page-navigation-left">
+    @if (ViewBag.IsAdmin) {
+      <a asp-area="Project" asp-controller="Project" asp-action="Edit" asp-route-id="@ViewBag.Project.ID">
+        <div class="bookmark">
+          <img src="~/img/edit.svg" alt="Изменить">
+        </div>
+      </a>
+    }
+    <a asp-area="Project" asp-controller="Project" asp-action="List">
+      <div class="bookmark">
+        <img src="~/img/exit.svg" alt="Назад">
+      </div>
+    </a>
+  </div>
+}
+<div class="page page-project-show">
+  <div class="page-head">
+    <p>Обзор проекта</p>
+  </div>
+  <div class="page-body">
+    <center class="item-container">
+      <p class="title">Наименование</p>
+      <input name="Name" type="text" placeholder="Наименование" value="@ViewBag.Project.Name" title="Наименование" maxlength="20" disabled />
+    </center>
+    <center class="item-container">
+      <p class="title">Предполагаемое количество часов этапа 'Работа над требованиями'</p>
+      <input name="Username" type="text" placeholder="Предполагаемое количество часов этапа 'Работа над требованиями'" value="@ViewBag.Project.TypeRequirementsHours" title="Предполагаемое количество часов этапа 'Работа над требованиями'" maxlength="20" disabled />
+    </center>
+    <center class="item-container">
+      <p class="title">Предполагаемое количество часов этапа 'Разработка архитектуры'</p>
+      <input name="Username" type="text" placeholder="Предполагаемое количество часов этапа 'Разработка архитектуры'" value="@ViewBag.Project.TypeArchitectureHours" title="Предполагаемое количество часов этапа 'Разработка архитектуры'" maxlength="20" disabled />
+    </center>
+    <center class="item-container">
+      <p class="title">Предполагаемое количество часов этапа 'Реализация'</p>
+      <input name="Username" type="text" placeholder="Предполагаемое количество часов этапа 'Реализация'" value="@ViewBag.Project.TypeImplementationHours" title="Предполагаемое количество часов этапа 'Реализация'" maxlength="20" disabled />
+    </center>
+    <center class="item-container">
+      <p class="title">Предполагаемое количество часов этапа 'Тестирование'</p>
+      <input name="Username" type="text" placeholder="Предполагаемое количество часов этапа 'Тестирование'" value="@ViewBag.Project.TypeTestingHours" title="Предполагаемое количество часов этапа 'Тестирование'" maxlength="20" disabled />
+    </center>
+    <center class="item-container">
+      <p class="title">Цена одного часа</p>
+      <input name="Username" type="text" placeholder="Цена одного часа" value="@ViewBag.Project.PriceHour" title="Цена одного часа" maxlength="20" disabled />
+    </center>
+    <center class="item-container">
+      <p class="title">Общее количество задействованных специалистов</p>
+      <input name="Username" type="text" placeholder="Общее количество задействованных специалистов" value="@ViewBag.Project.Persons.Count" title="Общее количество задействованных специалистов" maxlength="20" disabled />
+    </center>
+    <center class="item-container">
+      <p class="title">Итоговая стоимость</p>
+      <input name="Username" type="text" placeholder="Итоговая стоимость" value="@ViewBag.Project.FinalPrice()" title="Итоговая стоимость" maxlength="20" disabled />
+    </center>
+    <center class="item-container">
+      @if (ViewBag.IsAdmin) {
+        <p class="title">Вы администратор</p>
+      } else if (ViewBag.Person == null) {
+        <p class="title">Вы не состоите в данном проекте</p>
+      } else if (ViewBag.Person.TypeRequirements == 1) {
+        <p class="title">Вы отвечаете за этап 'Работа над требованиями'</p>
+      } else if (ViewBag.Person.TypeArchitecture == 1) {
+        <p class="title">Вы отвечаете за этап 'Работа над архитектурой'</p>
+      } else if (ViewBag.Person.TypeImplementation == 1) {
+        <p class="title">Вы отвечаете за этап 'Работа над реализацией'</p>
+      } else if (ViewBag.Person.TypeTesting == 1) {
+        <p class="title">Вы отвечаете за этап 'Работа над тестированием'</p>
+      }
+    </center>
+  </div>
+</div>

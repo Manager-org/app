@@ -1,0 +1,26 @@
+html {
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  color: black;
+  font-family: 'Comfortaa', cursive;
+  height: 100%;
+  image-rendering: optimizeSpeed;
+  user-select: none;
+}
+
+.page {
+  height: 100%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+input {
+  color: black;
+  font-family: 'Comfortaa', cursive;
+}

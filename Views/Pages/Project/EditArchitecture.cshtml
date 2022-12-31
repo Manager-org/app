@@ -1,0 +1,93 @@
+﻿@section HTML_TITLE {
+  Этап 'Работа над архитектурой'
+}
+
+@section HTML_HEADER_CSS {
+  <link rel="stylesheet" href="~/css/pages/project/editArchitecture.css" />
+}
+
+@section HTML_PAGE_NAVIGATION {
+  <div class="page-navigation-left">
+    <a asp-area="Project" asp-controller="Project" asp-action="EditRequirements" asp-route-id="@ViewBag.Project.ID">
+      <div class="bookmark">
+        <img src="~/img/project-step.svg" alt="Этап 'Работа над требованиями'">
+      </div>
+    </a>
+    <a asp-area="Project" asp-controller="Project" asp-action="EditImplementation" asp-route-id="@ViewBag.Project.ID">
+      <div class="bookmark">
+        <img src="~/img/project-step.svg" alt="Этап 'Реализация'">
+      </div>
+    </a>
+    <a asp-area="Project" asp-controller="Project" asp-action="EditTesting" asp-route-id="@ViewBag.Project.ID">
+      <div class="bookmark">
+        <img src="~/img/project-step.svg" alt="Этап 'Тестирование'">
+      </div>
+    </a>
+    <a asp-area="Project" asp-controller="Project" asp-action="Edit" asp-route-id="@ViewBag.Project.ID">
+      <div class="bookmark">
+        <img src="~/img/exit.svg" alt="Назад">
+      </div>
+    </a>
+  </div>
+}
+
+@section HTML_FOOTER_JS {
+  <script src="~/js/components/input-number.js"></script>
+}
+
+<div class="page page-project-edit-architecture">
+  <div class="page-head">
+    <p>Этап 'Работа над архитектурой'</p>
+  </div>
+  <div class="page-body">
+    <form autocomplete="off" asp-area="Project" asp-controller="Project" asp-action="EditArchitecture" asp-route-id="@ViewBag.Project.ID" method="post" enctype="multipart/form-data">
+      <center class="item-container">
+        <p class="title">Наименование</p>
+        <input name="name" type="text" placeholder="Наименование" value="@ViewBag.Project.Name" maxlength="20" disabled />
+      </center>
+      <center class="item-container">
+        <p class="title">Предполагаемое количество часов</p>
+        <input name="typeArchitectureHours" type="text" pattern="[0-9]+" class="input-number" placeholder="Предполагаемое количество часов" value="@ViewBag.Project.TypeArchitectureHours" maxlength="20" />
+      </center>
+      <center class="item-container">
+        <p class="title">Задействованные люди</p>
+        <p class="arrows">↓ ↓</p>
+      </center>
+      @{
+        if (ViewBag.AssignedAccounts.Count > 0) {
+          for (int i = 0; i < ViewBag.AssignedAccounts.Count; i++)
+          {
+            <center class="item-container">
+              <a asp-area="Person" asp-controller="Person" asp-action="Unassign" asp-route-idAccount="@ViewBag.AssignedAccounts[i].ID" asp-route-idProject="@ViewBag.Project.ID" asp-route-typeArchitecture="True" title="@ViewBag.AssignedAccounts[i].MiddleName"><span>@ViewBag.AssignedAccounts[i].Name @ViewBag.AssignedAccounts[i].Surname</span></a>
+            </center>
+          }
+        } else {
+          <center class="item-container">
+            <p>Пусто</p>
+          </center>
+        }
+      }
+      <center class="item-container">
+        <p class="title">Незадействованные люди</p>
+        <p class="arrows">↓ ↓</p>
+      </center>
+      @{
+        if (ViewBag.UnassignedAccounts.Count > 0) {
+          for (int i = 0; i < ViewBag.UnassignedAccounts.Count; i++)
+          {
+            <center class="item-container">
+              <a asp-area="Person" asp-controller="Person" asp-action="Assign" asp-route-idAccount="@ViewBag.UnassignedAccounts[i].ID" asp-route-idProject="@ViewBag.Project.ID" asp-route-typeArchitecture="True" title="@ViewBag.UnassignedAccounts[i].MiddleName"><span>@ViewBag.UnassignedAccounts[i].Name @ViewBag.UnassignedAccounts[i].Surname</span></a>
+            </center>
+          }
+        } else {
+          <center class="item-container">
+            <p>Пусто</p>
+          </center>
+        }
+      }
+      <center class="item-container submit">
+        <input type="submit" value="Применить">
+      </center>
+    </form>
+  </div>
+</div>

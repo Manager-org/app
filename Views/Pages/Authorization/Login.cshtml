@@ -1,0 +1,67 @@
+@section HTML_TITLE {
+  Вход
+}
+
+@section HTML_HEADER_CSS {
+  <link rel="stylesheet" href="~/css/pages/login.css" />
+}
+
+@section HTML_PAGE_NAVIGATION {
+  <div class="page-navigation-left">
+    <a asp-area="Authorization" asp-controller="Authorization" asp-action="Registration">
+      <div class="bookmark">
+        <img src="~/img/registration.svg" alt="Регистрация">
+      </div>
+    </a>
+  </div>
+}
+
+@section HTML_FOOTER_JS {
+  <script src="~/js/components/alert.js"></script>
+}
+
+<div class="page page-login">
+  <div class="page-head">
+    <p>Вход</p>
+  </div>
+  <div class="page-body">
+    <form autocomplete="on" asp-area="Authorization" asp-controller="Authorization" asp-action="Login" method="post" enctype="multipart/form-data">
+      @model Account
+      @{
+        <center class="item-container">
+          <input name="Username" type="text" placeholder="Никнейм" maxlength="20" />
+        </center>
+        @if (ViewBag.ViewErrors.Username)
+        {
+          <center class="item-container">
+            <div class="alert">
+              <strong>Внимание |</strong> Используйте только английские буквы и цифры
+            </div>
+          </center>
+        }
+        <center class="item-container">
+          <input name="Password" type="password" placeholder="Пароль" maxlength="20" />
+        </center>
+        @if (ViewBag.ViewErrors.Password)
+        {
+          <center class="item-container">
+            <div class="alert">
+              <strong>Внимание |</strong> Используйте только английские буквы и цифры
+            </div>
+          </center>
+        }
+        <center class="item-container submit">
+            <input type="submit" value="Войти">
+        </center>
+        if (ViewBag.ViewErrors.IsError)
+        {
+          <center class="item-container">
+            <div class="alert" onclick="close()">
+              <strong>Внимание |</strong> Проверьте исходные данные
+            </div>
+          </center>
+        }
+      }
+    </form>
+  </div>
+</div>

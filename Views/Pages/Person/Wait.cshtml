@@ -1,0 +1,43 @@
+﻿@section HTML_TITLE {
+  Ожидание
+}
+
+@section HTML_HEADER_CSS {
+  <link rel="stylesheet" href="~/css/pages/person/wait.css" />
+}
+
+@section HTML_PAGE_NAVIGATION {
+  <div class="page-navigation-left">
+    <a asp-area="Authorization" asp-controller="Authorization" asp-action="Logout">
+      <div class="bookmark">
+        <img src="~/img/logout.svg" alt="Выйти из аккаунта">
+      </div>
+    </a>
+
+    <a asp-area="Person" asp-controller="Person" asp-action="Delete" class="link-confirm">
+      <div class="bookmark">
+        <img src="~/img/delete.svg" alt="Удалить">
+      </div>
+    </a>
+  </div>
+}
+
+@section HTML_FOOTER_JS {
+  <script src="~/js/components/link-confirm.js"></script>
+}
+
+<div class="page page-person-wait">
+  <div class="page-head">
+    <p>Планирование работ по проекту</p>
+  </div>
+  <div class="page-body">
+    <center class="item-container news">
+      <div class="title">Информация</div>
+      <hr>
+      <div class="elements">
+        <div class="element">Вас не задействовали ни на одном проекте.</div>
+        <div class="element">Для проверки, что вас добавили на какой-либо проект необходимо: перезагрузить текущую страницу или перезайти в собственный аккаунт.</div>
+      </div>
+    </center>
+  </div>
+</div>

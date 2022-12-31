@@ -1,0 +1,34 @@
+input[type="checkbox"] {
+    width: 1.7em;
+    height: 1.7em;
+    cursor: pointer;
+    border-radius: 4px;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    border: solid 2px rgb(40, 42, 40);
+}
+
+input[type="checkbox"]:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+input[type="checkbox"]:checked {
+    background-color: rgb(255, 221, 159)
+}
+
+input[type="checkbox"] ~ label {
+    font-size: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1024px) {
+    input[type="checkbox"] {
+        width: 1.45em;
+        height: 1.45em;
+    }
+
+    input[type="checkbox"] ~ label {
+        font-size: 16px;
+    }
+}

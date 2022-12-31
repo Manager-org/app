@@ -1,0 +1,104 @@
+@section HTML_TITLE {
+  Регистрация
+}
+
+@section HTML_HEADER_CSS {
+  <link rel="stylesheet" href="~/css/pages/registration.css" />
+}
+
+@section HTML_PAGE_NAVIGATION {
+  <div class="page-navigation-left">
+    <a asp-area="Authorization" asp-controller="Authorization" asp-action="Login">
+      <div class="bookmark">
+        <img src="~/img/login.svg" alt="Вход">
+      </div>
+    </a>
+  </div>
+}
+
+@section HTML_FOOTER_JS {
+  <script src="~/js/components/alert.js"></script>
+}
+
+<div class="page page-registration">
+  <div class="page-head">
+    <p>Регистрация</p>
+  </div>
+  <div class="page-body">
+    <form autocomplete="off" asp-area="Authorization" asp-controller="Authorization" asp-action="Registration" method="post" enctype="multipart/form-data">
+      @model Account
+      @{
+        <center class="item-container">
+          <input name="Username" type="text" placeholder="Никнейм" maxlength="20" />
+        </center>
+        @if (ViewBag.ViewErrors.Username)
+        {
+          <center class="item-container">
+            <div class="alert">
+              <strong>Внимание |</strong> Используйте только английские буквы и цифры
+            </div>
+          </center>
+        }
+        <center class="item-container">
+          <input name="Password" type="password" placeholder="Пароль" maxlength="20" />
+        </center>
+        @if (ViewBag.ViewErrors.Password)
+        {
+          <center class="item-container">
+            <div class="alert">
+              <strong>Внимание |</strong> Используйте только английские буквы и цифры
+            </div>
+          </center>
+        }
+        <center class="item-container">
+          <input name="Name" type="text" placeholder="Имя" maxlength="20" />
+        </center>
+        @if (ViewBag.ViewErrors.Name)
+        {
+          <center class="item-container">
+            <div class="alert">
+              <strong>Внимание |</strong> Используйте только английские буквы и цифры
+            </div>
+          </center>
+        }
+        <center class="item-container">
+          <input name="MiddleName" type="text" placeholder="Отчество" maxlength="20" />
+        </center>
+        @if (ViewBag.ViewErrors.MiddleName)
+        {
+          <center class="item-container">
+            <div class="alert">
+              <strong>Внимание |</strong> Используйте только английские буквы и цифры
+            </div>
+          </center>
+        }
+        <center class="item-container">
+          <input name="Surname" type="text" placeholder="Фамилия" maxlength="20" />
+        </center>
+        @if (ViewBag.ViewErrors.Surname)
+        {
+          <center class="item-container">
+            <div class="alert">
+              <strong>Внимание |</strong> Используйте только английские буквы и цифры
+            </div>
+          </center>
+        }
+        <center class="item-container">
+          <input name="IsAdmin" type="checkbox" value="false" onclick="document.getElementsByName('IsAdmin')[0].value=(document.getElementsByName('IsAdmin')[0].value == 'true')?'false':'true'" id="IsAdmin">
+          <label for="IsAdmin">Вы админ?</label>
+        </center>
+        <center class="item-container submit">
+            <input type="submit" value="Зарегистрироваться">
+        </center>
+        if (ViewBag.ViewErrors.IsError)
+        {
+          <center class="item-container">
+            <div class="alert" onclick="close()">
+              <strong>Внимание |</strong> Проверьте исходные данные
+            </div>
+          </center>
+        }
+      }
+    </form>
+  </div>
+</div>

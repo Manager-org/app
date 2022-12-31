@@ -1,0 +1,56 @@
+.page-loader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 1001;
+}
+
+.page-loader > .block {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 0px;
+  height: 0px;
+  animation: page-loader-rotate 2s infinite linear;
+}
+
+.page-loader > .block > .part {
+  position: inherit;
+  display: inline-block;
+  background-color: #ffffff;
+  border: dashed 2px black;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  animation: page-loader-bounce 2s infinite ease-in-out;
+  animation-delay: 0s;
+}
+
+@keyframes page-loader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes page-loader-bounce {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}
+
+.loaded_hiding .page-loader {
+  transition: 0.3s opacity;
+  opacity: 0;
+}
+
+.loaded .page-loader {
+  display: none;
+}
