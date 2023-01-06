@@ -1,3 +1,8 @@
+
+.page.page-home > .page-body {
+  height: 80%;
+}
+
 .page.page-home > .page-body > .item-container {
   margin-bottom: 20px;
 }
@@ -73,6 +78,7 @@
   border: solid 2px black;
   border-radius: 10px;
   padding: 20px;
+  height: inherit;
 }
 
 .page.page-home > .page-body > .item-container.news > .title {
@@ -88,12 +94,15 @@
 
 .page.page-home > .page-body > .item-container.news > .elements {
   overflow: scroll;
-  height: 84%;
+  height: 88%;
 }
 
 .page.page-home > .page-body > .item-container.news > .elements > .element {
   font-size: 18px;
   margin-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  overflow-x: hidden;
 }
 
 @media screen and (min-width: 0px) and (max-width: 1024px) {
